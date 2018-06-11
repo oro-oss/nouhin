@@ -1,7 +1,7 @@
 {
   "name": "nouhin",
   "version": "0.0.0",
-  "description": "",
+  "description": "CLI tool that supports diff delivery",
   "main": "lib/index.js",
   "bin": {
     "nouhin": "bin/nouhin.js"
@@ -13,7 +13,12 @@
     "type": "git",
     "url": "git+https://github.com/ktsn/nouhin.git"
   },
-  "keywords": [],
+  "keywords": [
+    "cli",
+    "delivery",
+    "diff",
+    "git"
+  ],
   "author": "katashin",
   "license": "MIT",
   "bugs": {
