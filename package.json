@@ -1,0 +1,39 @@
+{
+  "name": "nouhin",
+  "version": "0.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ktsn/nouhin.git"
+  },
+  "keywords": [
+  ],
+  "author": "katashin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ktsn/nouhin/issues"
+  },
+  "homepage": "https://github.com/ktsn/nouhin#readme",
+  "jest": {
+    "transform": {},
+    "testRegex": "/test/.+\\.spec\\.js$"
+  },
+  "scripts": {
+    "lint": "eslint lib test && prettier -l \"{lib,test}/**/*.js\"",
+    "format": "prettier --write \"{lib,test}/**/*.js\"",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "prepublishOnly": "npm run lint && npm run test"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-ktsn": "^1.0.3",
+    "eslint-config-prettier": "^2.9.0",
+    "jest": "^22.4.3",
+    "prettier": "1.11.1"
+  }
+}
