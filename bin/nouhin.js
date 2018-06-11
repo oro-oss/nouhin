@@ -31,7 +31,7 @@ const argv = require('yargs')
     type: 'string',
     describe: 'Internal prefix path of output zip file'
   })
-  .help()
+  .help().argv
 
 main({
   sourceDir: argv.s,
