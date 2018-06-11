@@ -57,7 +57,7 @@ $ unzip -lqq 20180611.zip
 | `--message` (`-m`)  | Commit message when committing the delivery directory. (default `:rocket: {yyyy/mm/dd HH:MM}`)                                           |
 | `--prefix` (`-p`)   | Internal prefix path of output zip file (default `.`)                                                                                    |
 
-Note that `--output` and `--message` can includes `{}`-wrapped date format. You can see supported syntax on [`date-format` docs](https://github.com/felixge/node-dateformat#usage)
+Note that `--output` and `--message` can include `{}`-wrapped date format. You can see supported syntax on [`node-dateformat` docs](https://github.com/felixge/node-dateformat#usage)
 
 ## License
 
