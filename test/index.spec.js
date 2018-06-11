@@ -1,6 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const { execSync } = require('child_process')
+const yauzl = require('yauzl')
 
 const fixtureBase = path.resolve(__dirname, 'fixtures')
 
@@ -45,6 +46,20 @@ function test(fixtureType, debug) {
     expect(m).toEqual(expected)
   }
 
+  function unzip(file, cb) {
+    yauzl.open(path.join(cwd, file), (err, zipFile) => {
+      if (err) throw err
+
+      const entries = []
+      zipFile.on('entry', entry => {
+        entries.push(entry)
+      })
+      zipFile.on('end', () => {
+        cb(entries)
+      })
+    })
+  }
+
   function reset() {
     exec('git reset --hard ' + hash)
     exec('git clean -df')
@@ -58,6 +73,7 @@ function test(fixtureType, debug) {
     equals,
     notEqual,
     latestCommit,
+    unzip,
     reset
   }
 }
@@ -80,6 +96,26 @@ describe('Nouhin', () => {
     t = test('init')
     t.nouhin('-o specified.zip')
     t.exists('specified.zip')
+  })
+
+  it('has delivered files', done => {
+    t = test('init')
+    t.nouhin('-o out.zip')
+    t.unzip('out.zip', entries => {
+      expect(entries.length).toBe(1)
+      expect(entries[0].fileName).toBe('./foo.txt')
+      done()
+    })
+  })
+
+  it('specifies internal prefix path of the output zip', done => {
+    t = test('init')
+    t.nouhin('-o out.zip -p test')
+    t.unzip('out.zip', entries => {
+      expect(entries.length).toBe(1)
+      expect(entries[0].fileName).toBe('test/foo.txt')
+      done()
+    })
   })
 
   it('specifies output zip by using date formatter', () => {
