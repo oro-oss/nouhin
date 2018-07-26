@@ -7,6 +7,7 @@
     "nouhin": "bin/nouhin.js"
   },
   "files": [
+    "bin",
     "lib"
   ],
   "repository": {
