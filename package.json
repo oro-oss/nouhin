@@ -32,7 +32,9 @@
   "scripts": {
     "lint": "eslint lib test && prettier -l \"{lib,test}/**/*.js\"",
     "format": "prettier --write \"{lib,test}/**/*.js\"",
+    "pretest": "git submodule update",
     "test": "jest",
+    "pretest:watch": "git submodule update",
     "test:watch": "jest --watch",
     "prepublishOnly": "npm run lint && npm run test"
   },
