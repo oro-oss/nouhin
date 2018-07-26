@@ -1,0 +1,6 @@
+[submodule "test/fixtures/custom"]
+	path = test/fixtures/custom
+	url = git@github.com:nouhin-test/custom.git
+[submodule "test/fixtures/init"]
+	path = test/fixtures/init
+	url = git@github.com:nouhin-test/init.git
