@@ -42,8 +42,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/working
-      - run: git config user.name circleci
-      - run: git config user.email circleci@example.com
+      - run: git submodule update --init
       - run: npm run test
 
 workflows:
