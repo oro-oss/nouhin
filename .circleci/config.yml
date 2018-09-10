@@ -42,7 +42,8 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/working
-      - run: yes yes | git submodule update --init
+      - run: echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+      - run: git submodule update --init -q
       - run: npm run test
 
 workflows:
