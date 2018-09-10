@@ -43,6 +43,8 @@ jobs:
       - attach_workspace:
           at: ~/working
       - run: mkdir -p ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+      - run: git config user.name nouhin
+      - run: git config user.email nouhin@example.com
       - run: git submodule update --init -q
       - run: npm run test
 
